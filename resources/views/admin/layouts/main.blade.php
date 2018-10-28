@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Star Admin Free Bootstrap Admin Dashboard Template</title>
+    <title>Rohan Transport</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{asset('css/backend/vendors/iconfonts/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/backend/vendors/css/vendor.bundle.base.css')}}">
@@ -24,11 +24,6 @@
 
    @extends('admin.includes.navebar')
 
-
-
-
-
-
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
         {{--<!-- partial:partials/_sidebar.html -->--}}
@@ -43,9 +38,9 @@
                                 <img src="{{asset('images/backend/images/faces/face1.jpg')}}" alt="profile image">
                             </div>
                             <div class="text-wrapper">
-                                <p class="profile-name">Richard V.Welsh</p>
+                                <p class="profile-name">{{ Auth::user()->name }}</p>
                                 <div>
-                                    <small class="designation text-muted">Manager</small>
+                                    <small class="designation text-muted">SuperAdmin</small>
                                     <span class="status-indicator online"></span>
                                 </div>
                             </div>

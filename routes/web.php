@@ -15,4 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin', 'adminController@index');
+//Route::get('/admin', 'adminController@index');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin', 'AdminController@index')
+    ->middleware('is_admin')
+    ->name('admin');
