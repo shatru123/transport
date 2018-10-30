@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::get('/admin', 'adminController@index');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -24,22 +24,8 @@ Route::get('/admin', 'AdminController@index')
     ->middleware('is_admin')
     ->name('admin');
 
-Route::get('/admin/drivers', 'DriverController@index')
-    ->middleware('is_admin')
-    ->name('admin');
-
-Route::get('/admin/add_drivers', 'DriverController@create')
-    ->middleware('is_admin')
-    ->name('admin');
-
-Route::post('/admin/add_drivers1', 'DriverController@store')
-    ->middleware('is_admin')
-    ->name('admin');
 
 
-//Route::get('/admin/update_driver/{}', 'DriverController@index');
-
-//Route::get('admin/update_driver/{}', 'DriverController@index');
 
 Route::group(['middleware'=>'is_admin'], function(){
     Route::resource('admin/drivers', 'DriverController');

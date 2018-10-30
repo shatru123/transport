@@ -7,7 +7,7 @@
             <div class="card-body">
                 <h4 class="card-title">Striped Table</h4>
                 <p class="card-description">
-                 <a class="menu-icon mdi mdi-plus-circle" href="{{url('admin/add_drivers')}}">Add new</a>
+                 <a class="menu-icon mdi mdi-plus-circle" href="{{route('drivers.create')}}">Add new</a>
                     {{--<code>.table-striped</code>--}}
                 </p>
    <div class="table-responsive">
