@@ -86,11 +86,6 @@
                 {!! Form::file('photo_id', null, ['class'=>'form-control'])!!}
              </div>
 
-
-
-
-
-
              <div class="form-group">
                 {!! Form::submit('Add Drivers Details', ['class'=>'btn btn-primary']) !!}
              </div>

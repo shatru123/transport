@@ -51,7 +51,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">
+                    <a class="nav-link" href="">
                         <i class="menu-icon mdi mdi-television"></i>
                         <span class="menu-title">Dashboard</span>
                     </a>
@@ -65,7 +65,7 @@
                     <div class="collapse" id="ui-basic">
                         <ul class="nav flex-column sub-menu">
                             <li class="nav-item">
-                                <a class="nav-link" href="">All Vehicles/Trucks</a>
+                                <a class="nav-link" href="{{route('vechicles.index')}}">All Vehicles/Trucks</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="">Typography</a>

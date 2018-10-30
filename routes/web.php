@@ -32,6 +32,11 @@ Route::group(['middleware'=>'is_admin'], function(){
 
 });
 
+Route::group(['middleware'=>'is_admin'], function(){
+    Route::resource('admin/vechicles', 'VehicleController');
+
+});
+
 
 
 
