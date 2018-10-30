@@ -15,7 +15,7 @@
         <thead>
           <tr>
               <th>Id</th>
-
+              <th>Photo</th>
               <th>Name</th>
               <th>Address</th>
               <th>Mobile</th>
@@ -34,26 +34,20 @@
 
             <tr>
                <td>{{$driver->id}}</td>
-                <td>{{$driver->name}}</td>
+                <td>
+                    <img src="{{$driver->photo ? asset('images/backend/drivers')."/".$driver->photo : 'http://placehold.it/400x400'}}" width="100px" height="100px"  class="table-hover"   />
+                </td>
+                <td><a href="{{route('drivers.edit',$driver->id)}}">{{$driver->name}}</a></td>
                 <td>{!!html_entity_decode($driver->address)!!}</td>
-                {{--<td class="py-1">--}}
-                    {{--<img src="" alt="image" />--}}
-                {{--</td>--}}
-                {{--<td> <img height="50" src="{{$user->photo ? $user->photo->file : 'http://placehold.it/400x400'}}" alt="" ></td>--}}
-               {{--<td><a href="{{route('admin.drivers.edit', $driver->id)}}">{{$driver->name}}</a></td>--}}
                <td>{{$driver->mobile}}</td>
                 <td>{{$driver->alt_mobile}}</td>
-               {{--<td>{{$user->role ? $user->role->name : 'User has no role'}}</td>--}}
-                {{--<td>{{$user->is_active == 1 ? 'Active' : 'Not Active' }}</td>--}}
                <td>{{$driver->created_at->diffForHumans()}}</td>
                <td>{{$driver->updated_at->diffForHumans()}}</td>
             </tr>
 
              @endforeach
 
-
            @endif
-
 
       </tbody>
  </table>

@@ -31,41 +31,41 @@ class DriverController extends Controller
         return view('admin.drivers.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    public function edit($id)
+    {
+        $driver=Driver::findOrFail($id);
+        return view('admin.drivers.edit',compact('driver'));
+
+    }
+
+
     public function store(Request $request)
     {
         //
         $input=$request->all();
+        if($file = $request->file('photo_id'))
+        {
 
+
+            $name = time() . $file->getClientOriginalName();
+
+
+            $file->move('images/backend/drivers', $name);
+
+          //  $photo = Photo::create(['file'=>$name]);
+
+
+            $input['photo'] = $name;
+
+        }
          $drivers=new Driver();
         $drivers->create($input);
 
         return redirect('/admin/drivers');
 
+
+
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -86,10 +86,8 @@ class DriverController extends Controller
      * @param  \App\Driver  $driver
      * @return \Illuminate\Http\Response
      */
-    public function edit(Driver $driver)
-    {
-        //
-    }
+
+
 
     /**
      * Update the specified resource in storage.
@@ -98,9 +96,30 @@ class DriverController extends Controller
      * @param  \App\Driver  $driver
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Driver $driver)
+    public function update(Request $request,$id)
     {
         //
+
+        $input=$request->all();
+        if($file = $request->file('photo_id'))
+        {
+
+
+            $name = time() . $file->getClientOriginalName();
+
+
+            $file->move('images/backend/drivers', $name);
+
+            //  $photo = Photo::create(['file'=>$name]);
+
+
+            $input['photo'] = $name;
+
+        }
+
+        Driver::whereId($id)->first()->update($input);
+
+        return redirect('/admin/drivers');
     }
 
     /**
@@ -109,8 +128,23 @@ class DriverController extends Controller
      * @param  \App\Driver  $driver
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Driver $driver)
+    public function destroy($id)
     {
         //
+        $drivers = Driver::findOrFail($id);
+
+       // unlink("images/backend/drivers" . $drivers->photo);
+
+        $drivers->delete();
+
+        return redirect('/admin/drivers');
     }
+
+
+
+
+
+
+
+
 }

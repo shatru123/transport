@@ -36,3 +36,16 @@ Route::post('/admin/add_drivers1', 'DriverController@store')
     ->middleware('is_admin')
     ->name('admin');
 
+
+//Route::get('/admin/update_driver/{}', 'DriverController@index');
+
+//Route::get('admin/update_driver/{}', 'DriverController@index');
+
+Route::group(['middleware'=>'is_admin'], function(){
+    Route::resource('admin/drivers', 'DriverController');
+
+});
+
+
+
+
