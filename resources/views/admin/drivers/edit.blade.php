@@ -102,6 +102,15 @@
                 <div class="form-group">
                     {!! Form::submit('Delete Drivers Detail', ['class'=>'btn btn-danger col-sm-6']) !!}
                 </div>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 
                 {!! Form::close() !!}
             </div>

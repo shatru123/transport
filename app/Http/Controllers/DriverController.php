@@ -41,6 +41,18 @@ class DriverController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'mobile' => 'required|min:10',
+            'alt_mobile' => 'required|min:10',
+            'address' => 'required',
+            'city' => 'required',
+            'district' => 'required',
+            'pan_no' => 'required',
+            'adhar_no' => 'required',
+            'license_no' => 'required',
+
+        ]);
         //
         $input=$request->all();
         if($file = $request->file('photo_id'))
@@ -98,7 +110,18 @@ class DriverController extends Controller
      */
     public function update(Request $request,$id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'mobile' => 'required|min:10',
+            'alt_mobile' => 'required|min:10',
+            'address' => 'required',
+            'city' => 'required',
+            'district' => 'required',
+            'pan_no' => 'required',
+            'adhar_no' => 'required',
+            'license_no' => 'required',
+
+        ]);
 
         $input=$request->all();
         if($file = $request->file('photo_id'))

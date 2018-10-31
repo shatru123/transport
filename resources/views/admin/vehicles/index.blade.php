@@ -37,7 +37,7 @@
                                     <td><a href="{{route('vechicles.edit',$vehicle->id)}}">{{$vehicle->vehicle_heading}}</a></td>
                                     <td>{{$vehicle->number_plate}}</td>
                                     <td>{{$vehicle->Model}}</td>
-                                    <td>{{$vehicle->Fuel_type}}</td>
+                                    <td>{{$vehicle->Fuel_type ?'Diesel' :'Petrol '  }}</td>
                                     <td>{{$vehicle->created_at->diffForHumans()}}</td>
                                     <td>{{$vehicle->updated_at->diffForHumans()}}</td>
                                 </tr>

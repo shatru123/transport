@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Vehicle;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
 
 class VehicleController extends Controller
@@ -27,6 +28,21 @@ class VehicleController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'vehicle_type' => 'required',
+            'vehicle_heading' => 'required',
+            'number_plate' => 'required',
+            'Chassis_number' => 'required',
+            'Engine_number' => 'required',
+            'Make' => 'required',
+            'Model' => 'required',
+            'Badge' => 'required',
+            'Fuel_type' => 'required',
+            'Tare' => 'required',
+            'GVM_ATM' => 'required',
+            'GCM_GTM' => 'required',
+
+        ]);
         $input = $request->all();
         $vehicles=new Vehicle();
         $vehicles->create($input);
@@ -52,6 +68,21 @@ class VehicleController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'vehicle_type' => 'required',
+            'vehicle_heading' => 'required',
+            'number_plate' => 'required',
+            'Chassis_number' => 'required',
+            'Engine_number' => 'required',
+            'Make' => 'required',
+            'Model' => 'required',
+            'Badge' => 'required',
+            'Fuel_type' => 'required',
+            'Tare' => 'required',
+            'GVM_ATM' => 'required',
+            'GCM_GTM' => 'required',
+
+        ]);
         $input = $request->all();
 
         Vehicle::whereId($id)->first()->update($input);
@@ -68,6 +99,7 @@ class VehicleController extends Controller
 
         return redirect('/admin/vechicles');
     }
+
 
 
 }

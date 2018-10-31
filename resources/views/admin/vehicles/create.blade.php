@@ -1,12 +1,16 @@
 @extends('admin.layouts.main')
 
 @section('content')
+
+
     <div class="col-lg-10 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
+
                 {!! Form::open(['method'=>'POST', 'action'=> 'VehicleController@store','files'=>true]) !!}
 
                 <h1>Add Vehicle Details </h1>
+
                 <div class="form-group">
                     {!! Form::label('vehicle_type', 'Vehicle Type:') !!}
                     {!! Form::select('vehicle_type', array(1 => 'Truck', 0=> 'Pick Up', 2=> 'Other'), 0 , ['class'=>'form-control'])!!}
@@ -81,13 +85,25 @@
                 </div>
 
                 <div class="form-group">
-                    {!! Form::submit('Add Vehicles Details', ['class'=>'btn btn-primary']) !!}
+                    {!! Form::submit('Add Vehicles Details', ['class'=>'btn btn-primary btn-submit']) !!}
                 </div>
 
                 {!! Form::close() !!}
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
             </div>
         </div>
     </div>
+
+
 
 
 @endsection

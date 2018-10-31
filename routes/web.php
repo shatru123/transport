@@ -25,7 +25,7 @@ Route::get('/admin', 'AdminController@index')
     ->name('admin');
 
 
-
+Route::post('/val','VehicleController@Validation');
 
 Route::group(['middleware'=>'is_admin'], function(){
     Route::resource('admin/drivers', 'DriverController');
